@@ -1,55 +1,87 @@
-<!-- activity_search_details.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_dark"
+    android:padding="20dp"
+    android:paddingTop="48dp"> <!-- Pushed down from status bar -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
+        <!-- Poster -->
         <ImageView
             android:id="@+id/posterImageView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:contentDescription="@string/movie_poster"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="500dp"
+        android:contentDescription="@string/movie_poster"
+        android:scaleType="centerCrop"
+        android:background="@drawable/rounded_image"
+        android:clipToOutline="true"
+            android:layout_marginTop="48dp"
+        android:layout_marginBottom="24dp" />
 
+        <!-- Title -->
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_primary"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="12dp" />
 
+        <!-- Description -->
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/no_description_available"
-            android:textColor="#CCCCCC"
-            android:layout_marginBottom="24dp" />
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp" />
 
-        <Button
+        <!-- Add to Favorites Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addToFavButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/add_to_favorites"
-            android:backgroundTint="#00C853"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="12dp" />
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:backgroundTint="@color/accent_purple"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_menu_favorite"
+            app:iconTint="@color/white"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart"
+            app:strokeColor="@color/accent_purple"
+            app:strokeWidth="2dp"
+            app:cornerRadius="32dp" />
 
-        <Button
+        <!-- Back -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/backButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:backgroundTint="#333333"
-            android:textColor="#FFFFFF" />
+            android:layout_height="48dp"
+            android:text="Back"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/accent_purple"
+            app:icon="@drawable/ic_back"
+            app:iconTint="@color/accent_purple"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart"
+            app:strokeColor="@color/accent_purple"
+            app:strokeWidth="2dp"
+            app:cornerRadius="32dp" />
+
     </LinearLayout>
 </ScrollView>

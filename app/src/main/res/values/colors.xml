@@ -4,4 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="teal_700">#018786</color>
     <color name="dark_gray">#333333</color>
+    <color name="background_dark">#121212</color>
+    <color name="text_primary">#EEEEEE</color>
+    <color name="text_secondary">#D3D3D3</color>
+    <color name="accent_purple">#7B1FA2</color>
+    <color name="lighter_accent_purple">#B97BFF</color>
+    <color name="input_background">#1E1E1E</color>
+    <color name="pill_background">#1E1E1E</color> <!-- slightly lighter or darker than background -->
+
 </resources>

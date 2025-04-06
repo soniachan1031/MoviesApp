@@ -1,8 +1,11 @@
 package com.example.moviesapp.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.moviesapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.example.moviesapp.databinding.ActivityRegisterBinding
 
@@ -38,8 +41,12 @@ class RegisterActivity : AppCompatActivity() {
                 }
         }
 
-        binding.goToLoginButton.setOnClickListener {
+        val loginText = findViewById<TextView>(R.id.loginText)
+        loginText.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
         }
+
     }
 }

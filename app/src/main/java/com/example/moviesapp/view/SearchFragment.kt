@@ -14,6 +14,11 @@ import com.example.moviesapp.model.Movie
 import com.example.moviesapp.adapter.MovieAdapter
 import com.example.moviesapp.viewmodel.MainViewModel
 import android.content.Intent
+import android.view.inputmethod.EditorInfo
+import com.example.moviesapp.R
+import android.text.Editable
+import android.text.TextWatcher
+
 
 class SearchFragment : Fragment() {
 
@@ -37,7 +42,43 @@ class SearchFragment : Fragment() {
         setupRecyclerView()
         setupObservers()
         setupListeners()
+        setupRecentChips()
     }
+    private fun setupRecentChips() {
+        val recentKeywords = listOf("Batman", "Spiderman", "Avengers", "Marvel")
+        val chipGroup = binding.recentChipGroup
+
+        chipGroup.removeAllViews()
+
+        recentKeywords.forEach { keyword ->
+            val chip = com.google.android.material.chip.Chip(requireContext()).apply {
+                text = keyword
+                isClickable = true
+                isCheckable = false
+                chipBackgroundColor = resources.getColorStateList(R.color.pill_background, null)
+                setTextColor(resources.getColor(R.color.text_primary, null))
+                textSize = 14f
+                setPadding(24, 8, 24, 8)
+                chipCornerRadius = 32f
+                elevation = 4f
+                setOnClickListener {
+                    binding.searchEditText.setText(keyword)
+                    binding.searchEditText.setSelection(keyword.length)
+                    performSearch(keyword)
+                }
+            }
+            chipGroup.addView(chip)
+        }
+    }
+
+
+    private fun performSearch(query: String) {
+        if (query.isNotEmpty()) {
+            val api = OmdbApiService()
+            viewModel.searchMovies(api, query)
+        }
+    }
+
 
     private fun setupRecyclerView() {
         movieAdapter = MovieAdapter(searchResults) { movie ->
@@ -64,14 +105,36 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        binding.searchButton.setOnClickListener {
-            val query = binding.searchEditText.text.toString().trim()
-            if (query.isNotEmpty()) {
-                val api = OmdbApiService()
-                viewModel.searchMovies(api, query)
+        // Search action when user presses Enter
+        binding.searchEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                val query = binding.searchEditText.text.toString().trim()
+                if (query.isNotEmpty()) {
+                    val api = OmdbApiService()
+                    viewModel.searchMovies(api, query)
+                }
+                true
+            } else {
+                false
             }
         }
+
+        // Hide header and chips when typing
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val isTyping = !s.isNullOrEmpty()
+
+                binding.searchTitle.visibility = if (isTyping) View.GONE else View.VISIBLE
+                binding.searchSubtitle.visibility = if (isTyping) View.GONE else View.VISIBLE
+                binding.recentChipGroup.visibility = if (isTyping) View.GONE else View.VISIBLE
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

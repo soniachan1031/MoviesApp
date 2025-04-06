@@ -5,10 +5,7 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="back">Back</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
     <string name="go_to_register">Go to Register</string>
-    <string name="email">email\n</string>
     <string name="search_movies">Search movies</string>
     <string name="search">Search</string>
     <string name="favorites">Favorites</string>
@@ -23,4 +20,14 @@
     <string name="studio_name">Studio Name</string>
     <string name="studio_n_a">Studio: N/A</string>
     <string name="rating_n_a">Rating: N/A</string>
+    <string name="emailText">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account_register_now">Don\'t have an account? Register now</string>
+    <string name="login">Login</string>
+    <string name="welcome_back_login_to_your_account">Welcome back,\nlogin to your account</string>
+    <string name="already_have_an_account_login_here">Already have an account? Login here</string>
+    <string name="create_an_account_to_get_started">Create an account\nto get started</string>
+    <string name="search_movies_bar">Search movies...</string>
+    <string name="find_your_movie">Find Your Movie</string>
+    <string name="search_by_title_or_keyword">Search by title or keyword</string>
 </resources>

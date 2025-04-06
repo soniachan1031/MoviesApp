@@ -2,8 +2,10 @@ package com.example.moviesapp.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.moviesapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.example.moviesapp.databinding.ActivityLoginBinding
 
@@ -16,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -41,8 +44,13 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
-        binding.goToRegisterButton.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+        val registerText = findViewById<TextView>(R.id.registerText)
+        registerText.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
+
+
     }
+
 }

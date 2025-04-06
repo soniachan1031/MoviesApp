@@ -2,101 +2,155 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_dark"
+    android:padding="20dp"
+    android:paddingTop="48dp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
+        <!-- Poster -->
         <ImageView
             android:id="@+id/posterImageView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:contentDescription="Movie poster"
+            android:layout_height="400dp"
+            android:layout_marginTop="48dp"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp" />
+            android:contentDescription="@string/movie_poster"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_image"
+            android:clipToOutline="true" />
 
+        <!-- Title -->
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_primary"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:id="@+id/yearTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#CCCCCC"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:id="@+id/studioTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#CCCCCC"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:id="@+id/ratingTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FFD700"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_marginBottom="8dp" />
 
+        <!-- Year, Studio, Rating in one row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/yearTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/studioTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/ratingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFD700"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <!-- Editable Description -->
         <EditText
             android:id="@+id/descriptionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#1E1E1E"
+            android:autofillHints="Description"
+            android:minLines="5"
+            android:maxLines="8"
+            android:hint="@string/edit_description"
             android:inputType="textMultiLine"
-            android:minLines="4"
-            android:maxLines="6"
-            android:gravity="top|start"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:padding="12dp"
-            android:hint="@string/edit_description" />
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="15sp"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:gravity="top"
+            android:layout_marginBottom="24dp" />
 
-
-        <Button
-            android:id="@+id/updateButton"
+        <!-- Button Container -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="Update"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#00C853"
-            android:layout_marginBottom="12dp" />
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
 
-        <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="Delete"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#D32F2F"
-            android:layout_marginBottom="12dp" />
+            <!-- Update -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/update"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:icon="@drawable/ic_edit"
+                app:iconTint="#FFFFFF"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"
+                app:backgroundTint="@color/accent_purple"
+                app:cornerRadius="32dp"
+                android:layout_marginBottom="12dp" />
 
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="Back"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#333333" />
+
+            <!-- Delete -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/delete"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="#CF6679"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="#CF6679"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"
+                app:strokeColor="#CF6679"
+                app:strokeWidth="2dp"
+                app:cornerRadius="32dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Back -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/backButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/back"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/accent_purple"
+                app:icon="@drawable/ic_back"
+                app:iconTint="@color/accent_purple"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"
+                app:strokeColor="@color/accent_purple"
+                app:strokeWidth="2dp"
+                app:cornerRadius="32dp" />
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

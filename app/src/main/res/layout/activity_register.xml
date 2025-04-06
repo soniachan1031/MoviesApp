@@ -4,28 +4,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/background_dark"
     android:padding="24dp">
 
+    <!-- Heading -->
     <TextView
         android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:textSize="26sp"
+        android:text="@string/create_an_account_to_get_started"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="48dp" />
 
+    <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/registerEmailLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="#1E1E1E"
-        app:boxStrokeColor="#FFFFFF"
+        app:boxBackgroundColor="@color/input_background"
+        app:boxStrokeColor="@color/text_secondary"
         app:boxCornerRadiusTopStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -39,17 +42,19 @@
             android:id="@+id/registerEmailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:textColor="#FFFFFF"
+            android:hint="@string/emailText"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_secondary"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/registerPasswordLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="#1E1E1E"
-        app:boxStrokeColor="#FFFFFF"
+        app:boxBackgroundColor="@color/input_background"
+        app:boxStrokeColor="@color/text_secondary"
         app:boxCornerRadiusTopStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -64,31 +69,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_secondary"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Register Button -->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:backgroundTint="#00C853"
-        android:textColor="#FFFFFF"
-        android:elevation="2dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
         android:layout_marginTop="32dp"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/registerPasswordLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/goToLoginButton"
-        android:layout_width="0dp"
+    <!-- Back to Login (TextView version) -->
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/back_to_login"
-        android:backgroundTint="#333333"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="16dp"
+        android:text="@string/already_have_an_account_login_here"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/registerButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
