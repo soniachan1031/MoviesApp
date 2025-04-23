@@ -1,9 +1,14 @@
 # 🎬 Firebase Movie App – Kotlin + Firestore + MVVM
 
-A modern Android application that allows users to manage their favorite movies with full CRUD functionality using **Firebase Firestore** and **Firebase Authentication**. Built as part of our **Mobile Applications II (PROG3210)** course at **Conestoga College**.
+A modern Android application that allows users to manage their favorite movies with full CRUD functionality using **Firebase Firestore** and **Firebase Authentication**.
 
 <p float="left">
   <img width="300" alt="image" src="https://github.com/user-attachments/assets/4e54c569-120e-4338-8427-cc05c1586b94" />
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/919fc260-06c5-423e-acce-bf7035115fba" />
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/ac71a625-7276-45d8-8bb3-9bdb0b108b2c" />
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/4b0cafda-295c-4632-882c-52e0a5b9a78f" />
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/a478cb09-9b8a-4f5d-8119-c125db5bb1f6" />
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/55558a2c-feef-4cb9-9223-6becfea11637" />
 </p>
 
 ---
