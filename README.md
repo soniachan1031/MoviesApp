@@ -41,15 +41,9 @@ This app was developed for **Assignment 3** of the **PROG3210 – Mobile Develop
 ---
 
 ## 👥 Team Members
-- **Mubarak Hussain Ridoy** – 8959129  
-- **Valentine Chukwuemelie Ohalebo** – 8957771  
-- **Shong Chan** – 8949174  
-
----
-
-## 📽 Demo Video
-🎥 Watch our walkthrough on YouTube:  
-👉 *Add your video link here once available*
+- **Mubarak Hussain Ridoy** 
+- **Valentine Chukwuemelie Ohalebo** 
+- **Shong Chan**  
 
 ---
 
